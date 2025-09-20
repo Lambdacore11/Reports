@@ -108,7 +108,7 @@ class TestCsvFile:
             delete=False,
             encoding='utf-8'
             ) as f:
-            f.write('student_name,subject,teacher_name,date,grade')
+            f.write('student_name,subject,teacher_name,date,grade\ntest,test,test,2022-10-10,3')
             temp_path = f.name
         
         csv_file = CsvFile()
@@ -206,7 +206,7 @@ class TestParser:
         assert args.files == ['file.csv']
         assert args.report == 'student-performance'
 
-    def test_argparse_multiple_files(self):
+    def test_parser_multiple_files(self):
         test_args = ['--files', 'file1.csv', 'file2.csv', '--report', 'student-performance']
         
         parser = argparse.ArgumentParser()
